@@ -1,0 +1,21 @@
+{
+  "name": "hybrid-automation-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@cucumber/cucumber": "^13.0.0",
+    "@playwright/test": "^1.61.1"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.43.0",
+    "allure-playwright": "^3.10.2"
+  }
+}
