@@ -3,7 +3,7 @@ const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   
-  testDir: './UI_Automation/specs',
+  testDir: './',
 
   fullyParallel: true,
 

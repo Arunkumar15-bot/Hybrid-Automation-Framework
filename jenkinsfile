@@ -31,12 +31,18 @@ pipeline {
                 bat 'npx cucumber-js UI_Automation/features --require UI_Automation/step_definitions/*.js'
             }
         }
-    }
 
-    post {
-        always {
-            archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
-            archiveArtifacts artifacts: 'test-results/**', allowEmptyArchive: true
+        stage('Run API Automation') {
+            steps {
+                bat 'npx playwright test API_Automation/restful.spec.js --project=chromium'
+             }
+        }
+
+        post {
+            always {
+                archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'test-results/**', allowEmptyArchive: true
+            }
         }
     }
 }
