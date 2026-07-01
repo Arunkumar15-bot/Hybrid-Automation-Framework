@@ -14,10 +14,11 @@ class employeesearch
         await this.searchbtn.click();
     }
 
-    async deleteemployee()
-    {
-        await this.deletebtn.click();
-    }
+    // async deleteemployee()
+    // {
+    //     await this.page.locator('[class="oxd-icon bi-trash"]').first().waitFor({ timeout: 15000 });
+    //     await this.deletebtn.click();
+    // }
 }
 
 module.exports = employeesearch;

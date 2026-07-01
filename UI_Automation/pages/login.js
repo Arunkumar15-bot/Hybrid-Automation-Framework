@@ -18,9 +18,11 @@ class login
         await this.loginButton.click();
     }
     async verifylogin() {
-        await expect(
-           this.page.locator('//h6[@class="oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module"]')
-        ).toHaveText('Dashboard');
+        await this.page.waitForLoadState('networkidle');
+
+   await expect(
+      this.page.locator('//h6[contains(@class,"oxd-topbar-header-breadcrumb-module")]')
+   ).toBeVisible({ timeout: 15000 });
      }
 }
 

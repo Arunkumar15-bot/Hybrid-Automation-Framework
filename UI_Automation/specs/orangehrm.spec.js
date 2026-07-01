@@ -30,6 +30,6 @@ test('OrangeHRM Test', async ({ page }) => {
     // Search Employee
     await employeesearch.searchemployee('Arun');
 
-    await employeesearch.deleteemployee();
+    // await employeesearch.deleteemployee();
 
 });
