@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Arunkumar15-bot/Hybrid-Automation-Framework.git'
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
@@ -22,7 +17,7 @@ pipeline {
 
         stage('Run UI Automation') {
             steps {
-                bat 'npx playwright test --project=chromium'
+                bat 'npx playwright test UI_Automation/specs/orangehrm.spec.js --project=chromium'
             }
         }
 
@@ -35,14 +30,14 @@ pipeline {
         stage('Run API Automation') {
             steps {
                 bat 'npx playwright test API_Automation/restful.spec.js --project=chromium'
-             }
-        }
-
-        post {
-            always {
-                archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
-                archiveArtifacts artifacts: 'test-results/**', allowEmptyArchive: true
             }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'test-results/**', allowEmptyArchive: true
         }
     }
 }
